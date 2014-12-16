@@ -59,6 +59,16 @@ struct ContainerTraits
   typedef bool isNotContainer;
 };
 
+template <class C>
+struct ContainerTraitsShared
+{
+  typedef typename ContainerTraits<C>::Type T;
+  static C getContainer(T *t)
+  {
+    return C(t);
+  }
+};
+
 //------------------------------------------------------------------------------
 /**
     Type traits.

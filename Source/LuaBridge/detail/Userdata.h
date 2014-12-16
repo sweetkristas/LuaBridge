@@ -624,7 +624,7 @@ struct StackHelper
 
   static inline C get (lua_State* L, int index)
   {
-    return Userdata::get <T> (L, index, true);
+    return ContainerTraitsShared<C>::getContainer(Userdata::get <T> (L, index, true));
   }
 };
 
